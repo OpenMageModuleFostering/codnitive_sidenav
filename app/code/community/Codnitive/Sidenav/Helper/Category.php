@@ -46,7 +46,14 @@ class Codnitive_Sidenav_Helper_Category extends Mage_Catalog_Helper_Category
             return array();
         }
         
-        $cacheKey = sprintf('codnitive-sidenav-%d-%d-%d-%d-%d', $parent, $recursionLevel, $sorted, $asCollection, $toLoad);
+        $id = 0;
+        if (Mage::registry('current_product')) { 
+            $id = Mage::registry('current_product')->getId();
+        }
+        else if ($reqPath = Mage::app()->getRequest()) {
+            $id = $reqPath->getParam('id', $reqPath->getPathInfo());
+        }
+        $cacheKey = sprintf('codnitive-sidenav-%d-%d-%d-%d-%d-%d', $parent, $recursionLevel, $sorted, $asCollection, $toLoad, $id);
         if (isset($this->_storeCategories[$cacheKey])) {
             return $this->_storeCategories[$cacheKey];
         }

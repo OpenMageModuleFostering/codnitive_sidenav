@@ -54,9 +54,7 @@ class Codnitive_Sidenav_Model_Catalog_Category extends Mage_Catalog_Model_Catego
      */
     public function getProductCategoriesInDirectAccess($category, $classes)
     {
-        $reqPath = Mage::app()->getRequest();
-        $prodId = $reqPath->getParam('id', $reqPath->getPathInfo());
-        $prodModel = Mage::getModel('catalog/product')->load($prodId);
+        $prodModel = Mage::registry('current_product');
         $categories = $prodModel->getCategoryIds();
         $catArray = array();
         foreach ($categories as $catId) {

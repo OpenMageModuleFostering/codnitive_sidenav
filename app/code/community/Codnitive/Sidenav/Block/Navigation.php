@@ -64,6 +64,26 @@ class Codnitive_Sidenav_Block_Navigation extends Mage_Catalog_Block_Navigation
         $navigationMenu = $this->renderCategoriesMenuHtml(0);
         return $navigationMenu ? $navigationMenu : false;
     }
+    
+    /**
+     * We set cache to null when product direct access option is enabled and customer
+     * is in product page to avoid wrong category tree showing with enabled caches
+     * 
+     * Adds 1 extra second to page load
+     * Ultra version has caching and best performance
+     * 
+     * @return null
+     */
+    public function getCacheLifetime()
+    {
+        $condition = (Mage::registry('current_product') !== null) 
+                && ($this->getConfig()->activeProductCategoriesInDirectAccess());
+        if ($condition) {
+            return null;
+        }
+        
+        return parent::getCacheLifetime();
+    }
 
     /**
      * Get catagories of current store
@@ -136,7 +156,9 @@ class Codnitive_Sidenav_Block_Navigation extends Mage_Catalog_Block_Navigation
                 $childrenCount = $children->count();
             }
             else {
-                $children = explode(',', $children);
+                if (is_string($children)) {
+                    $children = explode(',', $children);
+                }
                 $childrenCount = count($children);
             }
         }
@@ -274,15 +296,15 @@ class Codnitive_Sidenav_Block_Navigation extends Mage_Catalog_Block_Navigation
         $html[] = $arrow;
 
         // add wrapper
-        $aClass = '';
-        $aStyle = '';
+        $aClass  = '';
+        $aStyle  = '';
+        $onclick = '';
         if ($config->isCollapsible() || $config->isThumbImageActive()) {
             $wrapperMargin = ($config->isCollapsible() && $collapsibleIconPosition === 'left') ? 14 : 0;
             $extraMargin = !$config->isThumbImageActive() ? 0 : (!empty($thumbnail) && ($thumbPosition === 'left')) ? $thumbWidth + 3 : 0;
             $collWrapper = $wrapperMargin + $extraMargin;
 
             // makes parent category name clickable to open/close collapsible menus if option is enabled
-            $onclick = '';
             $collapseName = '';
             if ($hasActiveChildren && $config->isCollapsible() && $config->expandByParentName()) {
                 $onclick = ' onclick="Codnitive.expandMenu(this.parentNode);return false;"';
