@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Codnitive_Sidenav",
+    "type": "magento-module",
+    "license": "GNU-General-Public-License,-version-3-(GPLv3)",
+    "homepage": "",
+    "description": "Adds new navigation block to store sidebar columns with lots of functionalities like showing categories thumbnail images, collapsible menus and more.",
+    "authors": [
+    {
+        "name": "Hassan Barza",
+        "email": "support@codnitive.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
