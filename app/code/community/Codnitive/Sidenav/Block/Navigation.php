@@ -165,11 +165,9 @@ class Codnitive_Sidenav_Block_Navigation extends Mage_Catalog_Block_Navigation
         
         // select active children
         $activeChildren = array();
-        if (!$this->_getHelper()->isSearchResultsPage()) {
-            foreach ($children as $child) {
-                if ($child->getIsActive()) {
-                    $activeChildren[] = $child;
-                }
+        foreach ($children as $child) {
+            if ($child->getIsActive()) {
+                $activeChildren[] = $child;
             }
         }
         $activeChildrenCount = count($activeChildren);
