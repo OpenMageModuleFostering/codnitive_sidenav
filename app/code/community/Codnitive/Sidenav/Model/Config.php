@@ -35,7 +35,7 @@ class Codnitive_Sidenav_Model_Config /*extends Mage_Catalog_Model_Category*/
     const EXTENSION_NAMESPACE = 'sidenav';
     
     const EXTENSION_NAME    = 'Sidebar Navigation Menu Professional';
-    const EXTENSION_VERSION = '1.8.12';
+    const EXTENSION_VERSION = '1.8.14';
     const EXTENSION_EDITION = '';
 
     public static function getNamespace()
