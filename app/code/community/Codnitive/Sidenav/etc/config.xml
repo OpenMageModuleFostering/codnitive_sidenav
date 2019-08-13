@@ -25,7 +25,7 @@
 <config>
     <modules>
         <Codnitive_Sidenav>
-            <version>1.8.00</version>
+            <version>1.8.03</version>
             <title>Sidebar Navigation Menu Professional</title>
             <link><![CDATA[http://www.codnitive.com/]]>
             </link>
@@ -130,11 +130,11 @@
                 <thumb_width>14</thumb_width>
                 <thumb_height>14</thumb_height>
                 <home_active>1</home_active>
-                <home_hide_top>1</home_hide_top>
+                <home_hide_top>0</home_hide_top>
                 <home_hide_home>1</home_hide_home>
                 <home_content>0</home_content>
                 <customer_active>1</customer_active>
-                <customer_hide_top>1</customer_hide_top>
+                <customer_hide_top>0</customer_hide_top>
                 <customer_column>left_col</customer_column>
                 <customer_before>customer_nav_after</customer_before>
             </sidenav>

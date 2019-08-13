@@ -109,12 +109,8 @@ Supported layout update handles (action):
     -->
     <cms_index_index>
         <reference name="header">
-            <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
-                <label>Navigation Bar</label>
-                <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
-            </block>
             <reference name="top.menu">
-                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,home_hide_top,remove_top_nav" conditions="1,1,1" operation="0.(1+2)">
+                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,home_hide_top" conditions="1,1" operation="0.1">
                     <name>catalog.topnav</name>
                 </action>
             </reference>
@@ -187,12 +183,8 @@ Supported layout update handles (action):
     -->
     <cms_index_defaultindex>
         <reference name="header">
-            <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
-                <label>Navigation Bar</label>
-                <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml"/>
-            </block>
             <reference name="top.menu">
-                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,home_hide_top,remove_top_nav" conditions="1,1,1" operation="0.(1+2)">
+                <action method="unsetChild" modules="codnitivecatalog/sidenav/" options="active,home_hide_top" conditions="1,1" operation="0.1">
                     <name>catalog.topnav</name>
                 </action>
             </reference>
