@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Adds new navigation block to store sidebar columns with lots of functionalities like showing categories thumbnail images, collapsible menus and more.
